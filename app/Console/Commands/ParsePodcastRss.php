@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Http\Controllers\XMLController;
 
 class ParsePodcastRss extends Command
 {
@@ -21,22 +22,16 @@ class ParsePodcastRss extends Command
     protected $description = 'Parse a podcast RSS feed and store high level data';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return int
      */
     public function handle()
     {
-        echo 'in progress, url is ' . $this->argument('url');
+        $url = $this->argument('url');
+        $this->info('in progress, url is ' . $url);
+        $xml = new XMLController;
+        $xml->index($url);
+        $this->newLine();
     }
 }

@@ -18,7 +18,7 @@ class CreateEpisodesTable extends Migration
             $table->foreignId('podcast_id');
             $table->text('title');
             $table->text('description');
-            $table->text('audio_url');
+            $table->text('audio_url')->nullable();;
 
             $table->timestamps();
         });
