@@ -33,5 +33,6 @@ class ParsePodcastRss extends Command
         $xml = new XMLController;
         $xml->index($url);
         $this->newLine();
+        return 1;
     }
 }
