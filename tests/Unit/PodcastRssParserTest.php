@@ -45,7 +45,9 @@ class PodcastRssParserTest extends TestCase
     public function episode_fields_are_populated()
     {
         $this->artisan('podcast:parse ' . $this->url);
-        $this->assertDatabaseHas('episodes', ['title' => 'NoSleep Podcast S16 - Halloween Hiatus Vol. 2']);
+        $this->assertDatabaseHas('episodes', [
+            'podcast_id' => 1,
+            'title' => 'NoSleep Podcast S16 - Halloween Hiatus Vol. 2']);
         // test count of rows
     }
 }
